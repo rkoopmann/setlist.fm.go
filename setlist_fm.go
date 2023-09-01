@@ -81,6 +81,7 @@ type ResponseSetlist struct {
 	Setlist      []SetlistObject `json:"setlist"`
 }
 type EventObject struct {
+	Id          string
 	Date        string
 	Venue       string
 	City        string
@@ -211,6 +212,7 @@ func writeJsonEventsList(events ResponseSetlist, path string) {
 		//relativeLink := "/event/" + eventYearString + "/" + cleanString(event.Artist.Name) + "/"
 
 		e := EventObject{
+			Id:     event.Id,
 			Date:   eventDateString,
 			Venue:  event.Venue.Name,
 			City:   event.Venue.City.Name,
